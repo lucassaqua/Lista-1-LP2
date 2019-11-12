@@ -2,18 +2,20 @@ import java.lang.Math;
 import java.util.Scanner;
 public class Ex1{
 
-	//funcao que calcula a area do circulo
-    private static double calcula(double r){
-	    double area = r*r*Math.PI;
+	
+    private static double calcula(double r) //Para calcular a area do circulo
+	{
+	    double area = (r^2)*Math.PI;
 	    return area;
     }
-    //funcao que calcula a area do retangulo
-    private static double calcula(double b, double a){
+    
+    private static double calcula(double b, double a)//Para calcular a area do retangulo
+	{
 	    double area = b*a;
 	    return area;
     }
-    //funcao que calcula a area do triangulo
-    private static double calcula(double l1, double l2, double l3){
+    
+    private static double calcula(double l1, double l2, double l3){//Para Calcular a area do triangulo
 	    double area,semipe;
 
 	    semipe = (l1+l2+l3)/2.0;
@@ -21,7 +23,7 @@ public class Ex1{
 
 	    return area;
     }
-h
+
 	public static void main(String[] args)
 	{
 		//criando objeto
