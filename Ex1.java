@@ -3,40 +3,38 @@ import java.lang.Math;
 
 public class Ex1{
 
-	
     private static double calcula(double r) //Para calcular a area do circulo
 	{
-	    double area = (r^2)*Math.PI;
+	    double area = (r*r)*Math.PI;
 	    return area;
     }
     
     private static double calcula(double b, double a)//Para calcular a area do retangulo
 	{
-	    double area = b*a;
+	    double area = a*b;
 	    return area;
     }
     
     private static double calcula(double l1, double l2, double l3)//Para Calcular a area do triangulo
     {
-	    double area,semipe;
+	    double area,aux;
 	    
-	    semipe = (l1+l2+l3)/2.0;
-	    area = Math.sqrt(semipe*(semipe-l1)*(semipe-l2)*(semipe-l3));
+	    aux = (l1+l2+l3)/2.0;
+	    area = Math.sqrt(aux*(aux-l1)*(aux-l2)*(aux-l3));
 
 	    return area;
     }
 
 	public static void main(String[] args)
 	{
-		//criando objeto
 		Ex1 area = new Ex1();
-		//recebendo argumentos
-		if(args.length == 0){
-			System.out.println("Numero de argumentos insuficiente");
+
+		if(args.length == 0)
+		{
+			System.out.println("Faltam argumentos para a execucao.");
 			return;
 		}
-		
-		
+
 		else if(args.length == 1)//Se for um circulo
 		{
 			try{
@@ -44,16 +42,15 @@ public class Ex1{
 					if(raio>0){
 						double circulo = area.calcula(raio);
 						String circ =String.format("%.2f",circulo);
-						System.out.println("A area do circulo e: " + circ + " unidades de area.");
+						System.out.println("Area do circulo = " + circ );
 					}
 					else{
-						System.out.println("Valor informado invalido para o raio");
+						System.out.println("Para o calculo da area do circulo eh necessario um valor de raio > 0");
 					}
 
 			}catch(NumberFormatException e){
-				System.out.println("Valor eh invalido:" + e);
+				System.out.println("Valor invalido:" + e);
 			}
-
 		}
 		
 		else if(args.length == 2)//Se for um retangulo
@@ -64,16 +61,15 @@ public class Ex1{
 				if( a>0 && b>0){
 					double retangulo = area.calcula(a,b);
 					String ret =String.format("%.2f",retangulo);
-					System.out.println("A area do retangulo e: " + ret + " unidades de area.");
+					System.out.println("Area do retangulo = " + ret);
 				}
 				else{
-					System.out.println("Pelo menos um dos valores nao formam um retangulo");
+					System.out.println("Todos os lados devem ser positivos para o calculo de area");
 				}
 
 			}catch(NumberFormatException e){
-				System.out.println("Pelo menos um dos valores eh invalido:" + e);
+				System.out.println("Todos os lados devem ser positivos para o calculo de area: \n" + e);
 			}
-
 		}
 		
 		else if(args.length == 3)//Se for um triangulo
@@ -86,35 +82,33 @@ public class Ex1{
 				{
 					double triangulo = area.calcula(a,b,c);
 					String tri =String.format("%.2f",triangulo);
-					System.out.println("A area do triangulo e: " + tri + " unidades de area.");
+					System.out.println("Area do triangulo = " + tri + "\n");
 				
-					//verificando tipo de triangulo
-					
+					//checando qual tipo de triangulo
 					if(a==b && b==c)
 					{
-						System.out.println("O triangulo e equilatero.");
+						System.out.println("E ele eh equilatero.");
 					}
 					else if(a==b || b==c || a==c)
 					{
-						System.out.println("O triangulo e isoceles.");
+						System.out.println("E ele eh isoceles.");
 					}
 					else
 					{
-						System.out.println("O triangulo e escaleno.");
+						System.out.println("E ele eh escaleno.");
 					}
 				}
 				else{
-					System.out.println("Pelo menos um dos valores nao formam um triangulo");
+					System.out.println("Todos os lados devem ser positivos para o calculo de area");
 				}
 				
 			}catch(NumberFormatException e){
-				System.out.println("Pelo menos um dos valores eh invalido:" + e);
+				System.out.println("Todos os lados devem ser positivos para o calculo de area:\n" + e);
 			}											
 		}
 		else{
-			System.out.println("Numero de argumentos excessivo");
+			System.out.println("Foram digitados mais argumentos que a classe comporta.");
 			return;
-		}
-		
+		}	
 	}
 }
