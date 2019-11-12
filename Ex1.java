@@ -1,5 +1,6 @@
-import java.lang.Math;
 import java.util.Scanner;
+import java.lang.Math;
+
 public class Ex1{
 
 	
@@ -15,9 +16,10 @@ public class Ex1{
 	    return area;
     }
     
-    private static double calcula(double l1, double l2, double l3){//Para Calcular a area do triangulo
+    private static double calcula(double l1, double l2, double l3)//Para Calcular a area do triangulo
+    {
 	    double area,semipe;
-
+	    
 	    semipe = (l1+l2+l3)/2.0;
 	    area = Math.sqrt(semipe*(semipe-l1)*(semipe-l2)*(semipe-l3));
 
@@ -34,8 +36,8 @@ public class Ex1{
 			return;
 		}
 		
-		//caso seja um circulo
-		else if(args.length == 1)
+		
+		else if(args.length == 1)//Se for um circulo
 		{
 			try{
 					double raio = Double.parseDouble(args[0]);
@@ -53,8 +55,8 @@ public class Ex1{
 			}
 
 		}
-		//caso seja um retangulo
-		else if(args.length == 2)
+		
+		else if(args.length == 2)//Se for um retangulo
 		{
 			try{
 				double a = Double.parseDouble(args[0]);
@@ -73,8 +75,8 @@ public class Ex1{
 			}
 
 		}
-		//caso seja um triangulo
-		else if(args.length == 3)
+		
+		else if(args.length == 3)//Se for um triangulo
 		{
 			try{
 				double a = Double.parseDouble(args[0]);
